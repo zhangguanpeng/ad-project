@@ -8,7 +8,7 @@ interface Props { }
 class IndexPage extends Component<Props> {
     componentDidMount() {
         axios.get('/ad/index/gray').then((res) => {
-            console.log('res', res.data);
+            console.log('res', res);
         }).catch((error) => {
             console.log(error);
         });

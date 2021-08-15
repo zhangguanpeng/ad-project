@@ -3,8 +3,11 @@ const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const OpenBrowserPlugin = require('open-browser-webpack4-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const webpackConfigBase = require('./webpack.base.config');
 const mockMiddleware = require('./mock.config');
+
+const smp = new SpeedMeasurePlugin();
 
 const PORT = 8080;
 const webpackConfigDev = {
@@ -15,7 +18,7 @@ const webpackConfigDev = {
             inject: 'body',
             title: 'React APP',
             filename: 'index.html',
-            template: path.join(__dirname, '../src/index.html')
+            template: path.join(__dirname, '../src/index.html'),
         }),
         new OpenBrowserPlugin({
             url: `http://localhost:${PORT}/#/`,
@@ -36,4 +39,4 @@ const webpackConfigDev = {
     },
 };
 
-module.exports = merge(webpackConfigBase, webpackConfigDev);
+module.exports = smp.wrap(merge(webpackConfigBase, webpackConfigDev));

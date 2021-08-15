@@ -23,7 +23,12 @@ const webpackBaseConfig = {
             },
             {
                 test: /\.ts[x]/,
-                use: 'ts-loader',
+                use: {
+                    loader: 'ts-loader',
+                    // options: {
+                    //     transpileOnly: true,
+                    // },
+                },
             },
             {
                 test: /\.(sc|c)ss/,
