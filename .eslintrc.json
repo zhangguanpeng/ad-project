@@ -20,14 +20,16 @@
         "import/no-unresolved": ["error", { "ignore": [".png$", ".webp$", ".jpg$"] }],
         "import/extensions": ["error", "never", { "svg": "always" }],
         "import/no-extraneous-dependencies": "off",
-        "no-plusplus": "off"
+        "no-plusplus": "off",
+        "react/state-in-constructor": "off"
     },
     "settings": {
         "import/resolver": {
             "alias": {
                 "map": [
                     ["pages", "./src/pages"],
-                    ["@utils", "./src/utils"]
+                    ["@utils", "./src/utils"],
+                    ["@components", "./src/components"]
                 ],
                 "extensions": [".ts", ".tsx", ".js", ".jsx", ".json", ".d.ts"]
             }

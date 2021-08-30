@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
-import { Button, DatePicker } from 'antd';
 import axios from 'axios';
 import moment from 'moment';
+import Header from '@components/Header';
+import Footer from '@components/Footer';
+import Chart from './components/Chart';
+import PromotionCard from './components/PromotionCard';
+import ProductCard from './components/ProductCard';
+import Account from './components/Account';
+import IndexBanner from './components/IndexBanner';
+import ProductNews from './components/ProductNews';
 import './style.scss';
 
 interface Props { }
@@ -22,12 +29,35 @@ class IndexPage extends Component<Props> {
     render() {
         return (
             <div className="index-page">
-                <div className="middle-box">
-                    <span>here is index page.</span>
-                    <Button type="primary">按钮</Button>
+                <div className="head-box">
+                    <Header />
                 </div>
-                <div>
-                    <DatePicker onChange={this.handleDateChange} />
+                <div className="content-box">
+                    <div className="left-content">
+                        <div className="chart-area">
+                            <Chart />
+                        </div>
+                        <div className="promotion-card-area">
+                            <PromotionCard />
+                        </div>
+                        <div className="product-card-area">
+                            <ProductCard />
+                        </div>
+                    </div>
+                    <div className="right-content">
+                        <div className="account-area">
+                            <Account />
+                        </div>
+                        <div className="index-banner-area">
+                            <IndexBanner />
+                        </div>
+                        <div className="product-news-area">
+                            <ProductNews />
+                        </div>
+                    </div>
+                </div>
+                <div className="foot-box">
+                    <Footer />
                 </div>
             </div>
         );
