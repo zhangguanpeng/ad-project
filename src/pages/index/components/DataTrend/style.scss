@@ -1,0 +1,42 @@
+.data-trend-component-box {
+    height: 437px;
+    background-color: #ffffff;
+    padding: 18px 20px 2px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 20px 0 rgba(183,183,188,.1);
+    .header-box {
+        height: 32px;
+        line-height: 32px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+
+        .title {
+            font-size: 21px;
+        }
+        .more {
+            font-size: 14px;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .select-area {
+            .ant-select-selection-item {
+                font-size: 12px;
+            }
+            .ant-picker-input {
+                input {
+                    font-size: 12px;
+                    padding: 2px;
+                }
+            }
+        }
+    }
+    .card-tabs-box {}
+    .line-chart-box {
+        margin-top: 30px;
+    }
+}

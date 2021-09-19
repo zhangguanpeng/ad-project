@@ -19,6 +19,10 @@ function mock(res, file) {
 const mockMiddleware = (config) => (req, res, next) => {
     const { projectDir, mockDir } = config;
 
+    if (['.html', '.css', '.js', '.png', '.jpg'].indexOf(path.extname(req.path)) > -1) {
+        return next();
+    }
+
     const filePath = path.resolve(projectDir, `./${mockDir + req.path}.json`);
     console.log('filePath', filePath);
 

@@ -3,7 +3,7 @@ import axios from 'axios';
 import moment from 'moment';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
-import Chart from './components/Chart';
+import Chart from './components/DataTrend';
 import PromotionCard from './components/PromotionCard';
 import ProductCard from './components/ProductCard';
 import Account from './components/Account';
