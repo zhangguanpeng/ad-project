@@ -34,13 +34,44 @@
             .index-banner-area {
                 height: 148px;
                 margin-top: 20px;
-                border: 1px solid red;
             }
 
             .product-news-area {
-                height: 470px;
+                height: 270px;
                 margin-top: 20px;
-                border: 1px solid red;
+            }
+
+            .right-footer-area {
+                margin-top: 10px;
+                border-top: 1px solid #eee;
+                background-color: #ffffff;
+                padding: 18px 20px 18px 20px;
+                border-radius: 8px;
+
+                .title {
+                    font-size: 14px;
+                    color: #000;
+                    display: inline-block;
+                }
+                .btns {
+                    display: flex;
+                    align-items: center;
+                    .label {
+                        font-size: 12px;
+                        margin-right: 5px;
+                        color: #999;
+                    }
+                    button {
+                        background-color: #edeef0;
+                        font-size: 12px;
+                    }
+                }
+            }
+            .right-bottom-img {
+                img {
+                    width: 100%;
+                    height: 150px;
+                }
             }
         }
     }
@@ -48,6 +79,5 @@
         width: 100%;
         height: 100px;
         margin-top: 20px;
-        border: 1px solid red;
     }
 }

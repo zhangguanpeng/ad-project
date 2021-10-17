@@ -1,16 +1,20 @@
 import React from 'react';
+import { Carousel } from 'antd';
 import './style.scss';
 
-interface IProps { }
-
-interface IStates { }
-
-class IndexBanner extends React.Component<IProps, IStates> {
-    state = {}
-
+class IndexBanner extends React.Component {
     render() {
         return (
-            <div>这里是IndexBanner组件</div>
+            <div className="index-banner-component-box">
+                <Carousel autoplay>
+                    <div>
+                        <img src="assets/imgs/index-banner1.png" alt="" />
+                    </div>
+                    <div>
+                        <img src="assets/imgs/index-banner2.png" alt="" />
+                    </div>
+                </Carousel>
+            </div>
         );
     }
 }
