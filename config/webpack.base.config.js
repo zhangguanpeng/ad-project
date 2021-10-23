@@ -24,14 +24,15 @@ const webpackBaseConfig = {
             {
                 test: /\.jsx?$/,
                 use: 'babel-loader',
+                exclude: /node_modules/,
             },
             {
                 test: /\.tsx?$/,
                 use: {
                     loader: 'ts-loader',
-                    // options: {
-                    //     transpileOnly: true,
-                    // },
+                    options: {
+                        transpileOnly: true,
+                    },
                 },
             },
             {

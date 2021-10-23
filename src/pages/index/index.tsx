@@ -14,6 +14,8 @@ import IndexBanner from './components/IndexBanner';
 import ProductNews from './components/ProductNews';
 import './style.scss';
 
+// const desc: string = 1 + 2;
+
 interface Props { }
 
 interface States {
