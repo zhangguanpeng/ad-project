@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from 'antd';
+import { ThemeContext, ThemeType } from 'context/theme';
 import './style.scss';
 
 interface IProps { }
@@ -46,7 +47,7 @@ class Account extends React.Component<IProps, IStates> {
                         <div className="text">推广余额</div>
                         <div className="value">{balance}</div>
                     </div>
-                    <Button type="primary" size="small">充值</Button>
+                    <Button type={this.context.buttonType} size="small">充值</Button>
                 </div>
                 <div className="credit">
                     <div>
@@ -59,5 +60,7 @@ class Account extends React.Component<IProps, IStates> {
         );
     }
 }
+
+Account.contextType = ThemeContext;
 
 export default Account;

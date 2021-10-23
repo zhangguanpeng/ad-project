@@ -2,6 +2,7 @@ import React from 'react';
 import {
     Button, Modal, Radio, InputNumber,
 } from 'antd';
+import { ThemeContext } from 'context/theme';
 import { EditOutlined } from '@ant-design/icons';
 import './style.scss';
 
@@ -95,7 +96,7 @@ class ProCardItem extends React.Component<IProps, IStates> {
                 {
                     btnStatus ? (
                         <div className="btn-wrap">
-                            <Button type="primary" size="small">进入</Button>
+                            <Button type={this.context.buttonType} size="small">进入</Button>
                         </div>
                     ) : (
                         <div className="btn-wrap">
@@ -135,5 +136,7 @@ class ProCardItem extends React.Component<IProps, IStates> {
         );
     }
 }
+
+ProCardItem.contextType = ThemeContext;
 
 export default ProCardItem;

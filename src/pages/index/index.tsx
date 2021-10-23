@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import moment from 'moment';
 import { Button } from 'antd';
+import { SettingOutlined } from '@ant-design/icons';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
+import { ThemeContext, ThemeType } from 'context/theme';
 import DataTrend from './components/DataTrend';
 import PromotionCard from './components/PromotionCard';
 import ProductCard from './components/ProductCard';
@@ -14,7 +16,16 @@ import './style.scss';
 
 interface Props { }
 
-class IndexPage extends Component<Props> {
+interface States {
+    theme: ThemeType;
+}
+class IndexPage extends Component<Props, States> {
+    state = {
+        theme: {
+            buttonType: 'primary',
+        },
+    }
+
     componentDidMount() {
         axios.get('/ad/index/gray').then((res) => {
             console.log('res', res);
@@ -27,51 +38,70 @@ class IndexPage extends Component<Props> {
         console.log('date change', moment(date).unix());
     }
 
+    hanleContextChange = () => {
+        const { theme } = this.state;
+        const newButtonType = theme.buttonType === 'primary' ? 'defalut' : 'primary';
+        this.setState({
+            theme: {
+                buttonType: newButtonType,
+            },
+        });
+    }
+
     render() {
+        const { theme } = this.state;
         return (
-            <div className="index-page">
-                <div className="head-box">
-                    <Header />
-                </div>
-                <div className="content-box">
-                    <div className="left-content">
-                        <div className="chart-area">
-                            <DataTrend />
-                        </div>
-                        <div className="promotion-card-area">
-                            <PromotionCard />
-                        </div>
-                        <div className="product-card-area">
-                            <ProductCard />
-                        </div>
+            <ThemeContext.Provider value={theme}>
+                <div className="index-page">
+                    <div className="head-box">
+                        <Header />
                     </div>
-                    <div className="right-content">
-                        <div className="account-area">
-                            <Account />
-                        </div>
-                        <div className="index-banner-area">
-                            <IndexBanner />
-                        </div>
-                        <div className="product-news-area">
-                            <ProductNews />
-                        </div>
-                        <div className="right-footer-area">
-                            <div className="title">品牌推广</div>
-                            <div className="btns">
-                                <div className="label">热门产品：</div>
-                                <Button size="small" style={{ marginRight: 10 }}>品牌专区</Button>
-                                <Button size="small">巨屏广告</Button>
+                    <div className="content-box">
+                        <div className="left-content">
+                            <div className="chart-area">
+                                <DataTrend />
+                            </div>
+                            <div className="promotion-card-area">
+                                <PromotionCard />
+                            </div>
+                            <div className="product-card-area">
+                                <ProductCard />
                             </div>
                         </div>
-                        <div className="right-bottom-img">
-                            <img src="assets/imgs/right-bg.png" alt="" />
+                        <div className="right-content">
+                            <div className="account-area">
+                                <Account />
+                            </div>
+                            <div className="index-banner-area">
+                                <IndexBanner />
+                            </div>
+                            <div className="product-news-area">
+                                <ProductNews />
+                            </div>
+                            <div className="right-footer-area">
+                                <div className="title">品牌推广</div>
+                                <div className="btns">
+                                    <div className="label">热门产品：</div>
+                                    <Button size="small" style={{ marginRight: 10 }}>品牌专区</Button>
+                                    <Button size="small">巨屏广告</Button>
+                                </div>
+                            </div>
+                            <div className="right-bottom-img">
+                                <img src="assets/imgs/right-bg.png" alt="" />
+                            </div>
                         </div>
                     </div>
+                    <div className="foot-box">
+                        <Footer />
+                    </div>
+                    <div className="setting-btn">
+                        <SettingOutlined
+                            style={{ fontSize: 36, color: '#326fff' }}
+                            onClick={this.hanleContextChange}
+                        />
+                    </div>
                 </div>
-                <div className="foot-box">
-                    <Footer />
-                </div>
-            </div>
+            </ThemeContext.Provider>
         );
     }
 }
