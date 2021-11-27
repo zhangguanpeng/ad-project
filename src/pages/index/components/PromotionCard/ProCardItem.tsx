@@ -13,6 +13,7 @@ interface IProps {
     btnStatus: boolean;
     cost?: number;
     budget?: number;
+    onEnter?: () => void;
 }
 
 interface IStates {
@@ -58,6 +59,13 @@ class ProCardItem extends React.Component<IProps, IStates> {
         });
     }
 
+    handleClick = () => {
+        const { onEnter } = this.props;
+        if (onEnter) {
+            onEnter();
+        }
+    }
+
     render() {
         const {
             name, desc, type, btnStatus, cost = 0, budget = 0,
@@ -96,7 +104,13 @@ class ProCardItem extends React.Component<IProps, IStates> {
                 {
                     btnStatus ? (
                         <div className="btn-wrap">
-                            <Button type={this.context.buttonType} size="small">进入</Button>
+                            <Button
+                                type={this.context.buttonType}
+                                size="small"
+                                onClick={this.handleClick}
+                            >
+                                进入
+                            </Button>
                         </div>
                     ) : (
                         <div className="btn-wrap">

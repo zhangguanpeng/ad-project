@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import moment from 'moment';
+import { RouteComponentProps } from 'react-router-dom';
 import { Button } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
 import Header from '@components/Header';
@@ -16,7 +17,7 @@ import './style.scss';
 
 // const desc: string = 1 + 2;
 
-interface Props { }
+interface Props extends RouteComponentProps { }
 
 interface States {
     theme: ThemeType;
@@ -51,6 +52,7 @@ class IndexPage extends Component<Props, States> {
     }
 
     render() {
+        const { history } = this.props;
         const { theme } = this.state;
         return (
             <ThemeContext.Provider value={theme}>
@@ -64,7 +66,9 @@ class IndexPage extends Component<Props, States> {
                                 <DataTrend />
                             </div>
                             <div className="promotion-card-area">
-                                <PromotionCard />
+                                <PromotionCard
+                                    history={history}
+                                />
                             </div>
                             <div className="product-card-area">
                                 <ProductCard />

@@ -1,0 +1,42 @@
+.search-promotion-page-box {
+    .header {
+        height: 100px;
+        border: 1px solid red;
+    }
+    .content {
+        width: 1220px;
+        margin: 25px auto 0;
+
+        .account-box {
+            height: 100px;
+            border: 1px solid red;
+        }
+
+        .data-trend-box {
+            margin-top: 20px;
+            height: 100px;
+            border: 1px solid red;
+        }
+
+        .wave-analysis-box {
+            margin-top: 20px;
+            height: 100px;
+            border: 1px solid red;
+        }
+
+        .user-portrait-box {
+            margin-top: 20px;
+            height: 100px;
+            border: 1px solid red;
+        }
+    }
+
+    .footer {
+        font-size: 12px;
+        text-align: center;
+        color: #848b99;
+        height: 64px;
+        line-height: 64px;
+        border: 1px solid red;
+    }
+}
