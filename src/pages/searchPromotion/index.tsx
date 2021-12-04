@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import Header from '@components/Header';
 import DataTrend from '@components/DataTrend';
+import Footer from '@components/Footer';
 import Account from './components/Account';
 // import DataTrend from './components/DataTrend';
 import WaveAnalysis from './components/WaveAnalysis';
@@ -55,10 +56,13 @@ interface IProps extends RouteComponentProps { }
 
 class SearchPromotionPage extends Component<IProps> {
     render() {
+        const { history } = this.props;
         return (
             <div className="search-promotion-page-box">
                 <div className="header">
-                    <Header />
+                    <Header
+                        history={history}
+                    />
                 </div>
                 <div className="content">
                     <div className="account-box">
@@ -71,13 +75,17 @@ class SearchPromotionPage extends Component<IProps> {
                         />
                     </div>
                     <div className="wave-analysis-box">
+                        <div className="title">波动分析</div>
                         <WaveAnalysis />
                     </div>
                     <div className="user-portrait-box">
+                        <div className="title">用户画像</div>
                         <UserPortrait />
                     </div>
                 </div>
-                <div className="footer"> </div>
+                <div className="footer">
+                    <Footer />
+                </div>
             </div>
         );
     }
