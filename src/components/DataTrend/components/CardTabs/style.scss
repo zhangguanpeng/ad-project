@@ -1,15 +1,20 @@
 .cardtabs-component-box {
     display: flex;
     justify-content: space-between;
+
+    :last-child {
+        margin-right: 0px;
+    }
 }
 .carditem-component-box {
     display: flex;
     background: #f7f8f8;
     border-radius: 6px;
-    width: 276px;
+    width: 100%;
     height: 79px;
     align-items: center;
     cursor: pointer;
+    margin-right: 10px;
 
     .icon {
         width: 40px;
@@ -17,7 +22,8 @@
         margin: 0 10px;
     }
     .info {
-        width: 200px;
+        width: 100%;
+        padding-right: 15px;
 
         .name-persent {
             display: flex;

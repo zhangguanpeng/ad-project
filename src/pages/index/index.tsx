@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import moment from 'moment';
+import { Select, Button, DatePicker } from 'antd';
 import { RouteComponentProps } from 'react-router-dom';
-import { Button } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
 import { ThemeContext, ThemeType } from 'context/theme';
-import DataTrend from './components/DataTrend';
+import DataTrend from '@components/DataTrend';
 import PromotionCard from './components/PromotionCard';
 import ProductCard from './components/ProductCard';
 import Account from './components/Account';
@@ -15,7 +15,7 @@ import IndexBanner from './components/IndexBanner';
 import ProductNews from './components/ProductNews';
 import './style.scss';
 
-// const desc: string = 1 + 2;
+const { Option } = Select;
 
 interface Props extends RouteComponentProps { }
 
@@ -63,6 +63,29 @@ class IndexPage extends Component<Props, States> {
                     <div className="content-box">
                         <div className="left-content">
                             <div className="chart-area">
+                                <div className="header-box">
+                                    <div className="title">数据趋势</div>
+                                    <div className="select-area">
+                                        <Select
+                                            defaultValue="0"
+                                            style={{ width: 120 }}
+                                            // onChange={this.handlePromotionChange}
+                                            size="small"
+                                        >
+                                            <Option value="0">全部推广产品</Option>
+                                            <Option value="1">搜索推广</Option>
+                                            <Option value="2">一站式推广</Option>
+                                            <Option value="3">合约推广</Option>
+                                            <Option value="4">知识营销</Option>
+                                        </Select>
+                                        <DatePicker
+                                            // onChange={this.handalDateChange}
+                                            size="small"
+                                            style={{ marginLeft: 10 }}
+                                            placeholder="请选择日期"
+                                        />
+                                    </div>
+                                </div>
                                 <DataTrend />
                             </div>
                             <div className="promotion-card-area">

@@ -1,45 +1,46 @@
 import React from 'react';
 import { cloneDeep } from 'lodash';
-import { Select, Button, DatePicker } from 'antd';
 import CardTabs from './components/CardTabs';
 import LineChart from './components/LineChart';
 import { CardItemType } from './components/CardTabs/types';
 import './style.scss';
 
-interface IProps { }
+const defaultCardData = [
+    {
+        id: '1',
+        name: '消费（元）',
+        value: 2000,
+        persent: '',
+        icon: 'assets/imgs/card-icon1',
+        isSelected: true,
+    },
+    {
+        id: '2',
+        name: '展现（次）',
+        value: 5988,
+        persent: 88.9,
+        icon: 'assets/imgs/card-icon2',
+        isSelected: false,
+    },
+    {
+        id: '3',
+        name: '点击（次）',
+        value: 199,
+        persent: 12.6,
+        icon: 'assets/imgs/card-icon3',
+        isSelected: false,
+    },
+];
+
+interface IProps {
+    cardData?: any;
+}
 
 interface IStates { }
 
-const { Option } = Select;
-
 class Chart extends React.Component<IProps, IStates> {
     state = {
-        cardData: [
-            {
-                id: '1',
-                name: '消费（元）',
-                value: 2000,
-                persent: 28,
-                icon: 'assets/imgs/card-icon1',
-                isSelected: true,
-            },
-            {
-                id: '2',
-                name: '展现（次）',
-                value: 5988,
-                persent: 88.9,
-                icon: 'assets/imgs/card-icon2',
-                isSelected: false,
-            },
-            {
-                id: '3',
-                name: '点击（次）',
-                value: 199,
-                persent: 12.6,
-                icon: 'assets/imgs/card-icon3',
-                isSelected: false,
-            },
-        ],
+        cardData: this.props.cardData || defaultCardData,
         chartData: [
             {
                 year: '2011',
@@ -106,29 +107,6 @@ class Chart extends React.Component<IProps, IStates> {
         const { cardData, chartData } = this.state;
         return (
             <div className="data-trend-component-box">
-                <div className="header-box">
-                    <div className="title">数据趋势</div>
-                    <div className="select-area">
-                        <Select
-                            defaultValue="0"
-                            style={{ width: 120 }}
-                            // onChange={this.handlePromotionChange}
-                            size="small"
-                        >
-                            <Option value="0">全部推广产品</Option>
-                            <Option value="1">搜索推广</Option>
-                            <Option value="2">一站式推广</Option>
-                            <Option value="3">合约推广</Option>
-                            <Option value="4">知识营销</Option>
-                        </Select>
-                        <DatePicker
-                            // onChange={this.handalDateChange}
-                            size="small"
-                            style={{ marginLeft: 10 }}
-                            placeholder="请选择日期"
-                        />
-                    </div>
-                </div>
                 <div className="card-tabs-box">
                     <CardTabs
                         cardData={cardData}

@@ -33,7 +33,11 @@ class CardItem extends React.Component<IProps, IStates> {
                 <div className="info">
                     <div className="name-persent">
                         <div className={nameTextStyle}>{name}</div>
-                        <div className={persentTextStyle}>{`${persent} %`}</div>
+                        {
+                            persent && (
+                                <div className={persentTextStyle}>{`${persent} %`}</div>
+                            )
+                        }
                     </div>
                     <div className={valueTextStyle}>{value}</div>
                 </div>

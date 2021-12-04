@@ -15,7 +15,43 @@
             width: 909px;
 
             .chart-area {
-                height: 437px;
+                // height: 437px;
+
+                .header-box {
+                    height: 32px;
+                    line-height: 32px;
+                    display: flex;
+                    justify-content: space-between;
+                    // padding-bottom: 10px;
+                    border-top-left-radius: 8px;
+                    border-top-right-radius: 8px;
+                    background-color: #ffffff;
+                    padding: 18px 20px 30px;
+            
+                    .title {
+                        font-size: 21px;
+                    }
+                    .more {
+                        font-size: 14px;
+                        cursor: pointer;
+            
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+            
+                    .select-area {
+                        .ant-select-selection-item {
+                            font-size: 12px;
+                        }
+                        .ant-picker-input {
+                            input {
+                                font-size: 12px;
+                                padding: 2px;
+                            }
+                        }
+                    }
+                }
             }
             .promotion-card-area {
                 margin-top: 22px;
