@@ -144,11 +144,11 @@ class WaveAnalysis extends Component<IProps> {
         this.formRef.current!.validateFields().then((values: any) => {
             console.log('values', values);
             // 发生接口请求
+            this.setState({
+                isModalVisible: false,
+            });
         }).catch((error: any) => {
             console.log('values', error);
-        });
-        this.setState({
-            isModalVisible: false,
         });
     }
 
@@ -224,11 +224,6 @@ class WaveAnalysis extends Component<IProps> {
                         </Form.Item>
                         <Form.Item name={['plan', 'city']} label="推广城市" rules={[{ required: true }]}>
                             <Input />
-                        </Form.Item>
-                        <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-                            <Button type="primary" htmlType="submit">
-                                Submit
-                            </Button>
                         </Form.Item>
                     </Form>
                 </Modal>
