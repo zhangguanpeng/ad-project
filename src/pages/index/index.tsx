@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
 import axios from 'axios';
 import moment from 'moment';
 import { Select, Button, DatePicker } from 'antd';
@@ -8,6 +9,7 @@ import Header from '@components/Header';
 import Footer from '@components/Footer';
 import { ThemeContext, ThemeType } from 'context/theme';
 import DataTrend from '@components/DataTrend';
+import store from 'store/index';
 import PromotionCard from './components/PromotionCard';
 import ProductCard from './components/ProductCard';
 import Account from './components/Account';
@@ -55,7 +57,8 @@ class IndexPage extends Component<Props, States> {
         const { history } = this.props;
         const { theme } = this.state;
         return (
-            <ThemeContext.Provider value={theme}>
+            // <ThemeContext.Provider value={theme}>
+            <Provider store={store}>
                 <div className="index-page">
                     <div className="head-box">
                         <Header
@@ -132,7 +135,8 @@ class IndexPage extends Component<Props, States> {
                         />
                     </div>
                 </div>
-            </ThemeContext.Provider>
+            </Provider>
+            // </ThemeContext.Provider>
         );
     }
 }
