@@ -19,13 +19,29 @@
         "no-use-before-define": "off",
         "import/no-unresolved": ["error", { "ignore": [".png$", ".webp$", ".jpg$"] }],
         "import/extensions": ["error", "never", { "svg": "always" }],
-        "import/no-extraneous-dependencies": "off"
+        "import/no-extraneous-dependencies": "off",
+        "no-plusplus": "off",
+        "react/state-in-constructor": "off",
+        "max-len": "off",
+        "react/jsx-indent-props": ["error", 4],
+        "jsx-a11y/no-static-element-interactions": "off",
+        "jsx-a11y/click-events-have-key-events": "off",
+        "jsx-a11y/mouse-events-have-key-events": "off",
+        "react/jsx-props-no-spreading": "off",
+        "arrow-body-style": "off",
+        "react/no-deprecated": "off"
     },
     "settings": {
         "import/resolver": {
             "alias": {
                 "map": [
-                    ["pages", "./src/pages"]
+                    ["pages", "./src/pages"],
+                    ["common", "./src/common"],
+                    ["@utils", "./src/utils"],
+                    ["@components", "./src/components"],
+                    ["context", "./src/context"],
+                    ["api", "./src/api"],
+                    ["store", "./src/store"]
                 ],
                 "extensions": [".ts", ".tsx", ".js", ".jsx", ".json", ".d.ts"]
             }
