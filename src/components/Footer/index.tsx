@@ -21,7 +21,7 @@ class Footer extends React.Component<IProps, IStates> {
                         ))
                     }
                 </div>
-                <div className="footer-copyright">©2020 Muke 使用慕课前必读 京公安网备 10100000号 互联网信息服务许可 我已阅读并接受慕课推广服务合同 欢迎访问慕课推广政策中心</div>
+                <div className="footer-copyright">©2021 Muke 使用慕课前必读 京公安网备 10100000号 互联网信息服务许可 我已阅读并接受慕课推广服务合同 欢迎访问慕课推广政策中心</div>
             </div>
         );
     }
